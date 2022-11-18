@@ -28,7 +28,7 @@ public class StudentManagementApplication {
             throw new AppException(e);
         }
     }
-//    src/main/resources/static/DB/001_CREATE_TABLES.sql
+
     private static void executeSqlFilesOnApplicationStarts() throws AppException {
         log.info("------------------Trying to run sql scripts automatically");
         final String tables = String.format("%s001_CREATE_TABLES.sql", DB_SCRIPTS_ROOT);
