@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect, useRef, RefObject } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faTrash, faEdit, faEye, faExclamationTriangle, faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash, faEdit, faExclamationTriangle, faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-import { deleteInstitutionById, getInstitutions, deleteAllInstitutions, IInstitution } from '../../services/InstitutionService';
+import IInstitution from '../../models/Institution';
+import { deleteInstitutionById, getInstitutions, deleteAllInstitutions } from '../../services/InstitutionService';
 
 export interface IInstitutionProps {}
 

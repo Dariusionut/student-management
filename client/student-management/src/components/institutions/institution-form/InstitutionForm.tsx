@@ -4,7 +4,8 @@ import { RefObject, useEffect, useRef, useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.min.css';
-import { editInstitution, saveInstitution, institutionById, parseDate, IInstitution } from '../../../services/InstitutionService';
+import IInstitution from '../../../models/Institution';
+import { editInstitution, saveInstitution, institutionById, parseDate} from '../../../services/InstitutionService';
 import { faUser, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

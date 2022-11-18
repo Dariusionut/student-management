@@ -1,28 +1,6 @@
-import { IRole } from './RoleService';
 import axios, { AxiosResponse } from 'axios';
-import { IAddress } from '../models/Address';
-
-export interface IUser {
-    id: number;
-    role: IRole;
-    address: IAddress;
-    firstName: string;
-    lastName: string;
-    username: string;
-    email: string;
-    phoneNumber: string;
-    dob: string;
-    age: number;
-    isActive: boolean;
-}
-
-interface CustomResponseList<T> {
-    data: T[];
-}
-
-interface CustomResponse<T> {
-    data: T;
-}
+import IUser from '../models/User';
+import { CustomResponse, CustomResponseList } from '../models/responses';
 
 const BASE_URL = `${process.env.REACT_APP_BASE_API_URL}/users`;
 

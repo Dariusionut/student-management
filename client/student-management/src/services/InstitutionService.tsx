@@ -1,29 +1,10 @@
 import * as React from 'react';
 import axios, { AxiosResponse } from 'axios';
 import moment from 'moment';
-import { IUser } from './UserService';
-import { IAddress } from '../models/Address';
+import IInstitution from '../models/Institution';
+import { CustomResponse } from '../models/responses';
 
 const BASE_URL = `${process.env.REACT_APP_BASE_API_URL}/institutions`;
-
-export interface IInstitution {
-    id: number;
-    institutionName: string;
-    description: string;
-    foundedDate: string;
-    dateAdded: string;
-    appUsers: IUser[];
-    address: IAddress;
-}
-
-// export interface IAddress {
-//     id: number;
-//     country: string;
-//     city: string;
-//     addressLineOne: string;
-//     addressLineTwo?: string;
-//     dateAdded: string;
-// }
 
 const saveInstitution = async function (institution: IInstitution, errorHandler?: Function) {
     const resp: AxiosResponse<IInstitution> = (await axios
@@ -34,9 +15,9 @@ const saveInstitution = async function (institution: IInstitution, errorHandler?
 
 const editInstitution = async function (institution: IInstitution, errorHandler?: Function) {
     const POST_URL = `${BASE_URL}/${institution.id}`;
-    const resp: AxiosResponse<IInstitution> = (await axios
+    const resp: AxiosResponse<CustomResponse<IInstitution>> = (await axios
         .put(POST_URL, institution)
-        .catch((err) => (errorHandler ? errorHandler() : console.error(`Unable to edit institution with id ${institution.id}`, err)))) as AxiosResponse<IInstitution>;
+        .catch((err) => (errorHandler ? errorHandler() : console.error(`Unable to edit institution with id ${institution.id}`, err)))) as AxiosResponse<CustomResponse<IInstitution>>;
     return resp.data;
 };
 const getInstitutions = async function () {

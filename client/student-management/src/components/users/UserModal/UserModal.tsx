@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { IUser } from '../../../services/UserService';
 import { Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { IAddress } from '../../../models/Address';
-
+import IUser from '../../../models/User';
+import IAddress from '../../../models/Address';
 export interface IUserModalProps {
     user?: IUser;
     modalOpen: boolean;

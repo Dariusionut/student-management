@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import jsLogo from './logo_js.png';
-import { IUser, userById } from '../../services/UserService';
+import {userById } from '../../services/UserService';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, ButtonToolbar, Card, CardBody, CardSubtitle, CardText, CardTitle, Col, ListGroup, ListGroupItem, Row } from 'reactstrap';
-import { editInstitution, IInstitution, institutionById } from '../../services/InstitutionService';
+import { editInstitution, institutionById } from '../../services/InstitutionService';
+import IUser from '../../models/User';
+import IInstitution from '../../models/Institution';
 import UserModal from './UserModal/UserModal';
 
 export interface IUserListProps {}
@@ -25,7 +27,7 @@ const UserList: React.FunctionComponent<IUserListProps> = (props: IUserListProps
                 setUserList(institution.appUsers);
             })
             .catch(function (err) {
-                console.error('Cannot fetch institution by id', institutionId);
+                console.error('Cannot fetch institution by id', institutionId, err);
                 navigate('/error');
             });
     }, []);
