@@ -13,7 +13,7 @@ import java.sql.DriverManager;
 @SpringBootApplication
 @Slf4j
 public class StudentManagementApplication {
-    private static final String RESOURCES_ROOT = "server\\student_management\\src\\main\\resources\\";
+    private static final String RESOURCES_ROOT = "student_management\\src\\main\\resources\\";
     private static final String DB_SCRIPTS_ROOT = RESOURCES_ROOT + "static\\DB\\";
 
     private static final String LOG_FILE = RESOURCES_ROOT + "static\\student_management.log";
@@ -52,7 +52,7 @@ public class StudentManagementApplication {
 
     public static void main(String[] args) {
         try {
-            resetLog(); // comment this if you don't want to reset the logs every time the application starts
+//            resetLog(); // comment this if you don't want to reset the logs every time the application starts
             executeSqlFilesOnApplicationStarts(); // comment this if you don't want to run the scripts automatically
         } catch (Exception e) {
             log.error("Unexpected error occurred: ", e);
